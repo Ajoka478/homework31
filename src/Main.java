@@ -10,17 +10,19 @@
 // вот так было до импорта Collectors.toList(), теперь стало просто toList()
 
 
+import domain.Item;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
-
-        // это для домашки
-        // выберите любое количество заказов, какое вам нравится.
-
-        //var orders = RestaurantOrders.read("orders_100.json").getOrders();
-        //var orders = RestaurantOrders.read("orders_1000.json").getOrders();
-        //var orders = RestaurantOrders.read("orders_10_000.json").getOrders();
-
-        // протестировать ваши методы вы можете как раз в этом файле (или в любом другом, в котором вам будет удобно)
+        var orders = RestaurantOrders.read("orders_100.json").getOrders();
+        List<Item> items = new ArrayList<>();
+        var total = items.stream()
+                .mapToDouble(Item::getPrice)
+                .sum();
+        //System.out.println(total);
     }
 }

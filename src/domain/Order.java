@@ -1,6 +1,7 @@
 package domain;
 
-import kg.attractor.java.homework.util.NotImplementedException;
+
+import util.NotImplementedException;
 
 import java.util.List;
 import java.util.Objects;
@@ -54,6 +55,9 @@ public class Order {
     //----------------------------------------------------------------------
 
     public void calculateTotal() {
-        throw new NotImplementedException("Вам надо реализовать этот метод!");
+        //throw new NotImplementedException("Вам надо реализовать этот метод!");
+        var total = items.stream()
+                .mapToDouble(Item::getPrice)
+                .sum();
     }
 }
